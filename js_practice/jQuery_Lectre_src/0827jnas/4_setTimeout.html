@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html  lang="ko">
+	<head>
+		<meta  charset="utf-8"/>
+		<title>setTimeout</title>
+		<style>
+			body {
+				text-align: center;
+				background:#EDE9DF;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>5초 후 구글로 이동</h1>
+		<img src="img/loader.gif" alt="로딩중" />
+		<script>
+
+			setTimeout(function(){
+				//이때 주소를 google로
+				//BOM중의 브라우저의 주소창을 객체화 시킴
+				location.href="http://google.com";
+			},5000);
+
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">확인</button>
+
+    <script>
+        // 화살표 함수는 함수가 포함된 객체가 this이다. 
+        // function 함수는 함수를 호출한 주체(요소)가 this이다. 
+        let showThis = () => {
+            console.dir(this);
+        }
+
+        // event가 window안에있음 this=window
+        window.onload = showThis;  
+
+        // this 는 btn으로 변경됨 
+        document.querySelector("#btn").onclick = showThis;
+        
+    </script>
+</body>
+</html>

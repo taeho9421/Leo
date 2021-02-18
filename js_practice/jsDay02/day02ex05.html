@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Layer : position 옵션을 주면 레이어가된다 */
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            left: 0px;
+            top:100px;
+            transform: rotate(0deg);
+            position: relative;
+            transition: left 1s cubic-bezier(.34,-0.46,.66,1.52), transform 1s cubic-bezier(.34,-0.46,.66,1.52);
+        }
+    </style>
+</head>
+<body>
+    <div id="box">Hello world!</div>
+
+    <script>
+        var box = document.getElementById("box");
+        var flag = false;
+        document.onkeyup = function(evt) {
+            console.log('keyup');
+            if(evt.keyCode = 13){
+                if(!flag) {
+                box.style.left = "500px";
+                box.style.transform = "rotate(360deg)"
+                flag=true;
+            } else {
+                box.style.left = "0px";
+                box.style.transform = "rotate(0deg)"
+                flag=false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

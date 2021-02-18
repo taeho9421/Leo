@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid #000;
+            padding: 0px;
+            margin: 0px;
+            border-radius: 6px;
+        }
+        #page {
+            width: 980px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #header {
+            overflow: hidden;
+        }
+        #header h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #header ul {
+            overflow: hidden;
+            width: 750px;
+            margin: 0px auto 20px auto;
+        }
+        #header ul li {
+            width: 150px;
+            float: left;
+            list-style: none;
+        }
+        #footer {
+            height: 60px;
+        }
+        #content {
+            height : 400px;
+        }
+        #content div {
+            float: left;
+        }
+        #leftSide, #rightSide {
+            width: 20%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        #leftSide p, #rightSide p {
+            text-align: center;
+            border-bottom: 1px solid black;
+            padding-bottom: 10px;
+        }
+        #main {
+            width: 58%;
+            height: 100%;
+            box-sizing: border-box;
+            margin: 0 1%;
+        }
+        #page, #content {
+            border: 0px;
+        }
+        #header, #content, #footer {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    
+<div id="page">
+    <div id="header">
+        <h1>Comstudy21 coding school</h1>
+        <ul>
+            <li>HOME</li>
+            <li>PROFILE</li>
+            <li>GALLERY</li>
+            <li>BOARD</li>
+            <li>GUEST</li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="leftSide">
+            <p>::: 주요 메뉴 :::</p>
+        </div>
+        <div id="main"></div>
+        <div id="rightSide">
+            <p>::: 협력 업체 :::</p>
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+</div>
+
+</body>
+</html>

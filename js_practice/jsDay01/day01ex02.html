@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>자바 스크립트는 즐거워</h1>
+    <hr>
+    <p>즐거운 자바스크립트</p>
+    <hr>
+    <!-- HTML5에서 기본 스크립트는 JAVASCRIPT -->
+    <!-- script 태그는 어디에나 작성해도 된다. -->
+    <script>
+        var name = prompt("성명입력: ","");
+        var isOk = confirm("당신은 "+name+"이/가 맞습니까?");
+        if(isOk){
+            document.write("<h3>입력 받은 이름은 "+name+"입니다</h3>");
+        } else {
+            alert("경고 : 넌 누구냐?");
+        }
+    </script>
+</body>
+</html>

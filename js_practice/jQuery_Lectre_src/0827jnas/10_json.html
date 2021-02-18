@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>json</title>
+	</head>
+	<body>
+	<script>
+		//json(JavaScript Object Notation)은 경량의 DATA 교환형식
+		//사실은 배열 + 객체
+
+		var movies = ["터널","라이트아웃","덕혜옹주"];
+		// 배열은 index가 있습니다. index로 접근
+
+		//alert(movies[1]);
+
+		var movie = {"title":"터널","director":"김성훈","actors":"하정우,배두나"};
+		//객체접근법 : .속성명
+		//alert(movie.director);
+
+		var json = [
+				{"title":"터널","director":"김성훈"},
+				{"title":"라이트아웃","director":"데이비드 F. 샌드버그"},
+				{"title":"덕혜옹주","director":"허진호"}
+				];
+
+		alert(json[0].director);
+
+
+	</script>
+	</body>
+</html>
+
+
+
+
+
+
+

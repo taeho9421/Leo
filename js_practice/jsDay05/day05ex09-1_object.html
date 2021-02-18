@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // class 생성하기 
+    // 1번
+    var obj1 = new Object();
+    obj1.name = "이태호";
+    obj1.age = 20;
+    obj1.phone = "010-1234-5677";
+    obj1.showInfo = function() {
+        console.log(this.name,this.age,this.phone);
+    }
+
+    // 2번
+    var obj2 = {
+        "name":"윤태걸",
+        "age":22,
+        "phone":"010-2424-5555",
+        "showAll":function(){
+            console.log(this.name,this.age,this.phone);
+        }
+    };
+    
+    // 3번 
+    function People(name,age,phone) { 
+        this.name = name;
+        this.age = age;
+        this.phone = phone;
+    }
+    People.prototype.showInfo = function() {
+        console.log(this.name,this.age,this.phone);
+    }
+
+    var obj3 = new People("임병진",39,"010-1212-3434");
+
+    // 4번
+    class Saram {
+        constructor(name,age,phone) {
+            this.name = name;
+            this.age = age;
+            this.phone = phone;
+        }
+        showInfo() {
+            console.log(this.name,this.age,this.phone);
+        }
+    }
+    var obj4 = new Saram("강준호",21,"011-444-2221");
+    
+    obj1.showInfo();
+    obj2.showAll();
+    obj3.showInfo();
+    obj4.showInfo();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>끝말 잇기 게임</h1>
+    <p>제시어 : <span id="wordEl">자바</span></p>
+    <input type="text" id="answerEl" size="8">
+    <input type="button" id="okBtn" value="확인">
+    <hr>
+    <p>결과: <span id="resultEl">답을 입력하고 확인을 누르세요!</span></p>
+
+    <script>
+        // 변수선언
+        var word = "자바"; // 제시어
+        var answer = "";
+        // DOM 객체 생성
+        var wordEl = document.querySelector("#wordEl");
+        var answerEl = document.querySelector("#answerEl");
+        var okBtn = document.querySelector("#okBtn");
+        var resultEl = document.querySelector("#resultEl");
+        // 처리
+        function checkWord() {
+            if(answerEl.value == "") {
+                alert("답을 입력 하세요!");
+                answerEl.focus();
+                return;
+            }
+            answer = (answerEl.value).trim();
+            if(answer[0] == word[word.length-1]) {
+                resultEl.innerText = "정답!";
+                word = answer;
+                wordEl.innerText = word;
+            } else {
+                resultEl.innerText = "오답!";
+            }
+            answer = "";
+            answerEl.value = answer;
+            answerEl.focus();
+        }
+        // 위에 선언된 이벤트 핸들러 함수를 적용한다.
+        answerEl.onkeypress = function(evt) {
+            //console.log(answerEl.value);
+            if(evt.keyCode == 13){
+                // 기능을 직접 실행
+                checkWord();
+            }
+        };
+        // 기능 함수의 참조값을 이벤트 속성에 전달.
+        okBtn.onclick = checkWord;
+    </script>
+</body>
+</html>

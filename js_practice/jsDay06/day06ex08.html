@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    검색: <input type="text" id="search">
+
+    <script>
+        function People(userName, phone, age) {
+            this.userName = userName;
+            this.phone = phone;
+            this.age = age;
+        }
+        People.prototype.show = function() {
+            document.write(`${this.userName}, ${this.phone}, ${this.age}`);
+        }
+        var list = [];
+
+        list.push(new People("PAR","1111-1111",12));
+        list.push(new People("KIM","1111-1111",12));
+        list.push(new People("LEE","1111-1111",12));
+        list.push(new People("PARK","1111-1111",12));
+        list.push(new People("KANG","1111-1111",12));
+        list.push(new People("PARK2","1111-1111",12));
+
+        // PARK이 list의 몇번째 인덱스인지 알아내는 기능.
+        function findIndexByName(lis, name) {
+            for(var i=0; i<lis.length; i++) {
+                if(name == lis[i].userName) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function findList(lis, name) {
+            let newArr = []
+            for(var i=0; i<lis.length; i++) {
+                if(name == lis[i].userName) {
+                    newArr.push(lis[i]); //같은 이름의 객체 요소를 저장.
+                }
+            }
+            if(newArr.length > 0) return newArr;
+            else return null;
+        }
+
+        function findLikeList(lis, name) {
+            let newArr = []
+            for(var i=0; i<lis.length; i++) {
+                if((lis[i].userName).indexOf(name) != -1) {
+                    newArr.push(lis[i]); //같은 이름의 객체 요소를 저장.
+                }
+            }
+            if(newArr.length > 0) return newArr;
+            else return null;
+        }
+
+        // var searchName = 'PA';
+        // var idx = findIndexByName(list, searchName);
+        // console.log(searchName+"의 index => "+idx);
+
+        // var searchList = findLikeList(list, searchName);
+        // console.log(searchList);
+
+    </script>
+</body>
+</html>

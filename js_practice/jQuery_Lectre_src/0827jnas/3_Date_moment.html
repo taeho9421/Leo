@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>Date_moment</title>
+	<style>
+		#time {
+			margin:70px;
+			text-align:center;
+			font-size:60px;
+			font-weight:bold;
+		}
+	</style>
+</head>
+<body>
+<h1>2016년 8월 27일 11시 40분 34초</h1>
+
+<div>
+	<time datetime="2015-11-25T11:40:23+09:00"></time>
+</div>
+
+<!-- jquery import -->
+<script src="js/jquery.js"></script>
+<!-- moment.js import -->
+<script src="js/moment-with-locales.js"></script>
+<script>
+
+	//moment한글로
+	moment.locale("ko");
+
+	//순수 자바스크립트인 Date객체를 이용하면 너무 복잡해서
+	//쉽게 사용할 수 있는 moment.js를 사용합니다.
+
+	//time요소의 datetime속성에 있는 시간을 글자로 얻어옵니다.
+	var time = $("time").attr("datetime");
+
+	//그 시간으로 moment객체를 만듭니다.
+	var past = moment(time);
+
+	$("time").text(past.fromNow());
+
+	//alert(now.minutes());
+
+	displayTime();//함수의 호출
+
+	//현재시간을 출력하는 함수
+	function displayTime() {
+		// 현재시간을 가지고 있는 moment객체 생성
+		var now = moment();
+		//년월일시분초포멧에 맞게 변경
+		var fullTime = now.format("YYYY년 M월 D일 h시 m분 s초");
+		//h1에 출력
+		$("h1").text(fullTime);
+	}
+
+	setInterval(displayTime,1000);
+
+	//순수 자바스크립트가 가지고 있는 타이머관련 함수
+	//1) setTimeout(함수,시간) : 특정시간후 한번 작동되는 함수
+	//2) setInterval(함수,시간) : 특정시간마다 계속 작동되는 함수
+
+
+
+	//var now = new Date();//순수 자바스크립트
+
+	//var year = now.getFullYear();
+	//var month = now.getMonth();
+
+
+	//alert(year);
+
+	//alert(now);
+
+</script>
+</body>
+</html>

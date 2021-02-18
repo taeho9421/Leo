@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/underscore.js"></script>
+    <style>
+        table {
+            width: 600px;
+        }
+        td,th {
+            border: 1px solid gray;
+            text-align: center;
+        }
+    </style>
+
+    <script id="myTemp" type="template/html">
+        <table>
+            <tr>
+                <th>NO</th>
+                <th>NAME</th>
+                <th>PRICE</th>
+                <th>COMPANY</th>
+                <th>YEAR</th>
+            </tr>
+        <% 
+        for(var i=0;i<carList.length;i++) {
+            var car = carList[i];
+        %>
+            <tr>
+                <td><%= car.no %></td>
+                <td><%= car.name %></td>
+                <td><%= car.price %></td>
+                <td><%= car.company %></td>
+                <td><%= car.year %></td>
+            </tr>
+        <% } // end of for %>
+        </table>
+    </script>
+
+    <script>
+        var cars = [
+            {"no":1, "name":"SONATA", "price":2500, "company":"HYUNDAI", "year":2018},
+            {"no":2, "name":"S90", "price":2500,"company":"VOLVO", "year":2020},
+            {"no":3, "name":"K5", "price":2500,"company":"KIA", "year":2018},
+            {"no":4, "name":"SM6", "price":3200,"company":"SAMSUNG", "year":2017},
+            {"no":5, "name":"GRANDEUR", "price":3500,"company":"HYUNDAI", "year":2016}
+        ];
+
+        window.onload = function() {
+            var carListArea = document.querySelector("#carListArea");
+            var myTemp = document.querySelector("#myTemp");
+
+            var compiled = _.template(myTemp.innerHTML);
+            var resultHTML = compiled({carList: cars});
+            carListArea.innerHTML = resultHTML;
+        }
+    </script>
+</head>
+<body>
+    
+    <h1>중고차 목록</h1>
+    <hr>
+    <div id="carListArea"></div>
+
+</body>
+</html>

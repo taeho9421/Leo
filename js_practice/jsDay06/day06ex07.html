@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class People {
+            constructor(name) {
+                this.name = name;
+            }
+            show () {
+                console.log(this.name);
+            }
+        }
+
+        class Student extends People {
+            constructor(name ,age)  {
+                super(name);
+                this.age = age;
+            }
+            show () {
+                super.show();
+                console.log(this.age);
+            }
+        }
+
+        var p1 = new Student("KIM",25);
+        console.log(p1);
+        p1.show();
+    </script>
+</body>
+</html>

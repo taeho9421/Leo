@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var fish1 = "오징어";
+        var fish2 = "꼴뚜기";
+        var fish3 = "대구";
+        var fish4 = "명태";
+        var fish5 = "거북이";
+        
+        // fish 1~5 까지를 반복문을 사용하여 배열처럼 출력해보기
+        // 단 배열을 새로 선언하지 않기. 
+        // eval() 함수도 사용하지 마시오.
+        //console.log(this["fish1"]);
+        for(var i=1;i<=5;i++){
+            console.log(this["fish"+i]);
+        }
+
+        // var arr = []; // 배열 초기화
+        // var obj = {"name1":"홍길동","name2":"김길동","name3":"이길동"}; // 객체(JSON) 초기화 
+        // console.log(obj.name2);
+        // console.log(obj["name1"]); // 연관배열 (Map구조) 방식으로 접근 
+        // obj.name4 = "최길동";
+        // obj["name5"] = "김길동";
+
+        // for(var i=1;i<5;i++) {
+        //     console.log(obj["name"+i]);
+        // }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

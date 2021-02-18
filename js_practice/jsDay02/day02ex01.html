@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div> 
+        <span id="num1">0</span><span id="operEl">*</span>
+        <span id="num2">0</span> = 
+        <input type="text" id="answer" size=2>
+        <input type="button" id="okBtn" value="확인">
+        <span id="hintEl"></span>
+    </div>
+
+    <div>결과: <span id="result">정답</span></div>
+    <script>
+        // 난수 발생기 MATH.random() 사용하기 
+
+        // 1보다 작은 실수인 난수 생성 
+        // var num = Math.random();
+        // console.log(num);
+
+        // 1~9 사이의 난수를 발생한다.
+        var num1 = Math.floor(2+  Math.random()*8);
+        var num2 = Math.floor(1 + Math.random()*8);
+        var oper = Math.floor(Math.random()*4);
+       
+       // console.log(num1,num2,num1*num2);
+       
+       // DOM 생성
+       // CSS 선택자를 그대로 사용한다 (. # 등)
+       var num1El = document.querySelector("#num1");
+       var num2El = document.querySelector("#num2");
+       var okBtn = document.querySelector("#okBtn");
+       var answer = document.querySelector("#answer");
+       var result = document.querySelector("#result");
+        var operEl = document.querySelector("#operEl");
+        var hintEl = document.querySelector("#hintEl");
+      
+       num1El.innerText = num1;
+       num2El.innerText = num2;
+        var operArr = ['+','-','*','/'];
+        var calcFactory = [
+            function() {return num1+num2;},
+            function() {return num1-num2;},
+            function() {return num1*num2;},
+            function() {return Math.floor(num1/num2);}
+        ]
+        operEl.innerText = operArr[oper];
+        var num3 = num1 * num2;
+        hintEl.innerText = num3;
+       okBtn.onclick = function() {
+        // answer의 값과 num3의 값을 읽어와서 비교한다
+        // result 결과 표시
+        // 새 문제 제시
+        // answer를 비워준다.  
+
+        if(answer.value == num3) {
+            result.innerText= "정답!"
+        } else {
+            result.innerText= "오답!"
+        }
+        answer.value ="";
+        answer.focus();
+       }
+    </script>
+</body>
+</html>

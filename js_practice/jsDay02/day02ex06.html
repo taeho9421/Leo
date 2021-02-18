@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #puzzle {
+            border: 10px solid gray;
+            overflow: hidden;
+            width: 400px;
+        }
+        #puzzle > div {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            float: left;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>같은 그림 찾기 퍼즐 게임</h1>
+    <div id="puzzle">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        var puzzle = document.getElementById('puzzle');
+        var cells = puzzle.getElementsByTagName("div");
+        //console.log(cells);
+        for(var i=0; i<cells.length; i++) {
+            cells[i].innerText = i % (cells.length/2);
+        }
+    </script>
+</body>
+</html>

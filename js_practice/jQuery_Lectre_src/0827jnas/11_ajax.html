@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>ajax</title>
+		<style>
+			#loader {
+				width:100%;
+				height:100%;
+				background-color:#EDE9DF;
+				position: fixed;
+				left:0;
+				top:0;
+				background-image:url(img/loader.gif);
+				background-repeat: no-repeat;
+				background-position: center;
+				/*
+				 * 기본으로 숨겼다가
+				 */
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button>요청!</button>
+		<h1>남자배우 목록</h1>
+		<table border="1">
+			<caption>남자배우목록</caption>
+			<thead>
+				<tr>
+					<th>이름</th>
+					<th>키</th>
+					<th>몸무게</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colspan="3">없습니다.</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 2) 언더스코어 템플릿 코드 작성 -->
+		<script type="text/template" id="actorTmp">
+			<%_.each(actors,function(actor){%>
+			<tr>
+				<td><%=actor.name%></td>
+				<td><%=actor.height%></td>
+				<td><%=actor.weight%></td>
+			</tr>
+			<%})%>
+		</script>
+		<div id="loader"></div>
+		<script src="js/jquery.js"></script>
+		<!-- 1) underscore.js import -->
+		<script src="js/underscore.js"></script>
+		<script>
+			
+			$("button").click(function() {
+				//ajax는 화면갱신없이 데이터를 가져오는 방법입니다.
+				//그런데 서버가 느릴경우 시간이 지체됩니다.
+				//그래서 그동안 로딩이미지를 보여줍니다.
+				$("#loader").show();
+
+				//ajax를 사용하는 함수명은 ajax
+				//$.ajax("서버주소",옵션객체);
+				// 1) 옵션은 진짜 많은데, 실제로 사용하는 건 4~5개
+				// 2)주요옵션
+				//   - dataType:json,xml,text <-- 서버에서 오는 데이터의 타입
+				//   - type : GET,POST,(PUT,DELETE) <-- 서버에 보내는 메서드
+				//   - data: 서버에 보낼 데이터
+				//   - error : 에러콜백함수 <-- 에러발생시 호출
+				//   - success: 성공콜백함수 <- 성공시 호출
+
+				$.ajax("ajax/test.json",{
+					type:"get",
+					dataType:"json",
+					error:function(xhr,error,code){
+						alert(code);
+					},
+					success:function(json) {
+						//json : 데이터
+
+						//3) template함수 작성
+						var tmp = _.template($("#actorTmp").html());
+
+						$("tbody").empty()//텅 비움
+								  .append(tmp({"actors":json}));//붙임
+
+						//loader이미지를 숨김
+						$("#loader").fadeOut(200);
+
+					}
+				});//$.ajax() end
+
+
+			});//button click() end
+		
+		</script>
+	</body>
+</html>
+
+
+
+
+

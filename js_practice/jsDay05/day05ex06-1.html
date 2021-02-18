@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            position: relative;
+            width: 100px; height: 100px; border: 1px solid #000;
+            background-color: red;
+            left : 0px;
+        }
+    </style>
+    
+    <script>
+        // 자바 스크립트는 인터프리터 방식이기때문에 
+        // 실행 보다 나중에 오는 요소는 사용이 불가능 하다.
+        // 페이지를 모두 로드 한 다음에 실행하도록 한다.
+        // window가 모두 로드 되면 실행.
+        // function main() {
+        //     var box = document.querySelector("#box");
+        //     console.log(box);
+        // }
+        // window.addEventListener('load', main, true);
+
+        // 원래 쓰던 방식 - 자바스크립트의 엔트리 포인트 역할을 한다.
+        var moveBox = function(callback) {
+            var box = document.querySelector("#box");
+            box.callback = callback;
+            var x = 0;
+            var speed = 5;
+            var intervalRef = setInterval(function() {
+                x += speed;
+                box.style.left = x + "px";
+                if(x >= 400) {
+                    clearInterval(intervalRef);
+                    box.callback(x);
+                }
+            }, 1000/60);
+        }
+        //// -------- USER가 사용하는 부분과 library는 파일이 분리외어 있다.
+        window.onload = function() {
+            moveBox(function(x) {
+                // 도착하면 box의 속성을 변경 한다.
+                // 그냥 사용하면 this는 Window 객체가 된다.
+                this.style.backgroundColor = "Yellow";
+                this.innerText = x + 'px';
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="box">Box</div>
+</body>
+</html>

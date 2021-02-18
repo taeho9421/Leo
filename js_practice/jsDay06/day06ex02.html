@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let mkPerson = function () {
+            let userName = arguments[0];
+            let age = arguments[1];
+            let addr = arguments[2];
+            console.log("mkPerson()호출. . .");
+            return { "name":userName,"age":age,"addr":addr };
+        };
+
+        let jsonObj = mkPerson("홍길동",25,"서울시 마포구 대흥동");
+        // json.parse() : 문자열을 json으로 변경해준다.  
+        // json.stringify() : json을 문자열로 변경해준다. 
+        // document.write(JSON.stringify(jsonObj));  
+        
+        let personStr = JSON.stringify(jsonObj); 
+        document.write(personStr);  
+        console.log(personStr);
+        console.log(JSON.parse(personStr));
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div> 
+        <span id="num1">0</span> <span id="operEl">*</span>
+        <span id="num2">0</span> = 
+        <input id="answer" type="text" size="2">
+        <input type="button" id="okBtn" value="확인">
+        (<span id="hintEl"></span>)
+    </div>
+    <div>결과 : <span id="result">주어진 사칙연산의 답을 입력 하세요!</span></div>
+
+    <script>
+        // 난수 발생기 Math.random()
+        // 1 보다 작은 실수인 난수 생성.
+        //var num = Math.random();
+        //console.log(num);
+
+        // 2~9 사이의 난수를 발생한다.
+        var num1, num2, num3, oper;
+        var operArr = ['+','-','×','÷'];
+        var clacFactory = [
+            function(){return num1+num2;},
+            function(){return num1-num2;},
+            function(){return num1*num2;},
+            function(){return Math.floor(num1/num2);}
+        ];
+
+        // DOM 생성
+        // CSS 선택자를 그대로 사용 가능.
+        var num1El = document.querySelector("#num1");
+        var num2El = document.querySelector("#num2");
+        var okBtn = document.querySelector("#okBtn");
+        var answer = document.querySelector("#answer");
+        var result = document.querySelector("#result");
+        var operEl = document.querySelector("#operEl");
+        var hintEl = document.querySelector("#hintEl");
+
+        //console.dir(num1El);
+        function init() {
+            num1 = Math.floor(2 + Math.random()*8);
+            num2 = Math.floor(1 + Math.random()*8);
+            oper = Math.floor(Math.random()*4);
+            num3 = clacFactory[oper]();
+            num1El.innerText = num1;
+            operEl.innerText = operArr[oper];
+            num2El.innerText = num2;
+            hintEl.innerText = num3
+        }
+        // 최초로 문제 제시
+        init();
+        
+        okBtn.onclick = function() {
+            // ansert의 값을 num3와 비교 해서 결과를  result에 보여주기.
+            if(answer.value == num3) {
+                // result에 정답! 표시
+                result.innerText = "정답!";
+                // 새 문제 제시
+                init();
+            } else {
+                // 오답! 표시
+                result.innerText = "오답!";
+            }
+            // answer를 비워준다.
+            // focus() 맞추기
+            answer.value = "";
+            answer.focus();
+        };
+    </script>
+</body>
+</html>

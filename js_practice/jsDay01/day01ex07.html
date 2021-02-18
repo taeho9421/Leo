@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>더하기 계산기</h1>
+    <hr>
+    <input type="text" id="a" size="5"> + 
+    <input type="text" id="b" size="5">
+    <input type="button" id="btn" value= "확인">
+    <hr>
+    <!-- 결과를 보여주는 영역 -->
+    <div>결과: <span id="result"></span></div>
+    
+    <script>
+        // html에있는것을 script로 옮겨올수있다 dom을 통해서. 
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+        
+
+        // id 가 btn 인 요소를 DOM으로 가져온다. 
+        var btn = document.getElementById("btn");
+        // console.log(btn);
+        var result = document.getElementById("result");
+        //console.dir(result);
+
+        // 익명 함수를 이벤트 핸들러로 사용 (많이 사용하는 구조)
+       btn.onclick = function() {
+           // alert("확인 버튼 눌렀다!");
+           // javascript의 형변환 메소드 
+           // Number() 
+           // String() 
+           // boolean() 
+          // var c = Number(a.value) + Number(b.value);
+          if(isNaN(parseInt(a.value)) ) {
+              alert('숫자가 아닙니다!')
+              a.value = "";
+              a.focus();
+              return;
+          }
+
+          // Boolean의 결과값 : true , false 
+          // 제어문에서 false 로 간주 하는 것 : 0, NaN, "", null, undefined  
+          if(isNaN(parseInt(b.value)) ) {
+              alert('숫자가 아닙니다!')
+              b.value = "";
+              b.focus();
+              return;
+          }
+
+          var aValue = parseInt(a.value);
+          var bValue = parseInt(b.value);
+          var c = aValue + bValue;
+          result.innerHTML = "<strong>"+aValue+"+"+bValue+"="+c+"</strong>"; 
+        }
+    </script>
+</body>
+</html>

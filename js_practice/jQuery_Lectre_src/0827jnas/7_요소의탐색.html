@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<title>요소의 탐색</title>
+	<style type="text/css">
+		table {
+			border-collapse:collapse;
+			font:bold 50px Arial, Helvetica, sans-serif;
+			margin: auto;
+		}
+
+		table td {
+			padding:20px 35px;
+		}
+	</style>
+</head>
+<body>
+	<table border="1">
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</tbody>
+	</table>
+<script src="js/jquery.js"></script>
+<script>
+
+	$("td").eq(4)
+			.css("background","#F44336")
+			.prev()//이전 요소 선택
+			.css("background","#E91E63")//4번 td
+			.parent()//2번째 tr
+			.prev()//1번째 tr
+			.children()//자식들(1,2,3번 td)
+			.eq(1)//2번 td
+			.css("background","#673AB7")
+			.next()//3번 td
+			.css("background","#3F51B5")
+			.parents("tbody")//조상중에 tbody
+			.find("td:eq(8)")//자손들중에 선택
+			.css("background","#03A9F4");
+
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+    // javascript 객체 생성 1번 : object 객체 사용
+    var obj1 =new Object();
+    obj1.name = "김길동";
+    obj1.age = 15;
+    obj1.showInfo = function() {
+        console.log(this.name,this.age);
+    }
+
+    // javascript 객체 생성 2번 : 리터럴 사용
+    var obj2 = {
+        "name":"김범준",
+        "age":25,
+        "showInfo":function(){
+            console.log(this.name,this.age);
+        }
+    };
+
+    // javascript 객체 생성 3번 : prototype 이용 
+    // 1,2번과 다른 장점은 같은구조의 객체를 여러개 만들수있다. 상속도 가능하다.
+    function People(name,age) {
+        this.name = name;
+        this.age = age;
+    }
+    People.prototype.showInfo = function() {
+        console.log(this.name,this.age);
+    }
+    var obj3 = new People("김비트",33);
+
+    // javascript 객체 생성 4번 : class 이용(ES6에 추가된 내용)
+    class Man {
+        constructor(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        showInfo() {
+            console.log(this.name,this.age);
+        }
+    }
+    var obj4 = new Man("강감찬",33);
+
+    console.log(obj1);
+    console.log(obj2);
+    console.log(obj3);
+    console.log(obj4);
+
+    obj1.showInfo();
+    obj2.showInfo();
+    obj3.showInfo();
+    obj4.showInfo();
+
+</script>
+</body>
+</html>

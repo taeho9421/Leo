@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid black;
+            background-color: red;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+    <script>
+        // javascript 시작점 
+        window.onload = function() {
+          var box = document.querySelector("#box");
+            box.onmousedown = function(event) {
+                // 여기서 this 는 box객체 
+                console.log(this.offsetLeft);
+                this.gapX = event.clientX - this.offsetLeft;
+                this.gapY = event.clientY - this.offsetTop;
+                // console.dir(event.clientX); 이벤트가 발생한 x좌표
+                // console.dir(event.clientY); 이벤트가 발생한 y좌표 
+
+            window.onmousemove = function(event2) {
+                // 여기서 this는 window가된다. 이벤트가 발생한 요소가 다르다 
+                box.style.left = event2.clientX - box.gapX + "px";
+                box.style.top = event2.clientY - box.gapY + "px";
+              }
+            }
+
+            window.onmouseup = function(event2) {
+                window.onmousemove = null; // 초기화
+              }
+        };
+    </script>
+</head>
+<body>
+
+<div id="box">Box</div>
+
+</body>
+</html>

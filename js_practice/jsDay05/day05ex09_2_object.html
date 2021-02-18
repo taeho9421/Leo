@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var obj1 = new Object();
+        obj1.name = "이름";
+        obj1.age = 20;
+        obj1.address = "서울시";
+        obj1.showAll = function() {
+            console.log(this.name,this.age,this.address);
+        }
+
+        var obj2 = {
+            "name":"이선수",
+            "age":28,
+            "address":"경기도",
+            "showInfo":function() {
+                console.log(this.name,this.age,this.address);
+            }
+        };
+
+        function People(name,age,email){
+            this.name = name;
+            this.age = age;
+            this.email = email;
+        }
+        People.prototype.showInfo = function(){
+            console.log(this.name,this.age,this.email);
+        }
+        var obj3 = new People("삼선수",30,"seon@naver.com");
+
+        class Info {
+            constructor(name,age,email) {
+                this.name = name;
+                this.age = age;
+                this.email = email;
+            }
+            showAll() {
+                console.log(this.name,this.age,this.email);
+            }
+        }
+
+        var obj4 = new Info("사선수",17,"four@naver.com");
+
+        obj1.showAll();
+        obj2.showInfo();
+        obj3.showInfo();
+        obj4.showAll();
+    </script>
+</body>
+</html>

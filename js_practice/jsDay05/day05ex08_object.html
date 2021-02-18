@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    var obj = {"id":"HONG","name":"GILDONG","address":"MAPO SEOUL"};
+
+    console.dir(obj);
+    // console.log(obj.hasOwnProperty("address"));
+    // javascript 객체에는 필요한 속성을 자유롭게 추가하거나 제거할수있다. 
+    // delete obj["name"];
+
+    // obj 객체의 속성 개수 알아내기
+    // Object.keys() 키를 리스트로 반환한다. 
+    console.log(Object.keys(obj));
+    console.log(Object.keys(obj).length);
+    
+    for(var property in obj) {
+        console.log(obj[property]);
+    }
+
+</script>
+
+</body>
+</html>

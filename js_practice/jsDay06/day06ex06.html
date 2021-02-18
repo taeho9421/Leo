@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function People(userName,age) {
+        }
+        People.prototype.showInfo = function() {
+            console.log("People's showInfo");
+        }
+        function PeopleImpl(userName,phone,age) {
+            this.userName = userName;
+            this.age = age;
+            this.phone = phone;
+        }
+
+        People.prototype = new People();
+        People.constructor = PeopleImpl; // 상속을 받은 것 
+
+        var p1 = new PeopleImpl("KIM","1111",25);
+        console.log(p1);
+        p1.showInfo();
+        var list = [];
+
+    </script>
+</body>
+</html>

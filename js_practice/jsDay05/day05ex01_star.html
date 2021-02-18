@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- 
+    과제1) 자바스크립트로 브라우저 화면에 출력 해 보세요.
+    *
+    **
+    ***
+    ****
+    *****
+    ****
+    ***
+    **
+    *
+    -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div img {
+            width: 50px;
+        }
+        input {
+            height: 40px;
+            background-color: yellowgreen;
+            text-align: center;
+            font-size: 35px;
+        }
+    </style>
+</head>
+<body>
+    별출력 행의 수 (홀수만)입력하고 Enter키 치세요 :
+    <input type="text" id="sizeInput" size="3">
+    <br>
+    <script>
+        var sizeInput = document.getElementById("sizeInput");
+        sizeInput.focus();
+        sizeInput.onkeyup = function(evt) {
+            if(evt.keyCode == 13) {
+                var size = parseInt(this.value);
+                if(size%2==0){
+                    alert("홀수만 입력하세요!");
+                    this.value="";
+                    this.focus();
+                    return;
+                }
+                draw(size);
+            }
+        }
+        // 별을 그리는 함수
+        function draw(size) {
+            var cnt = 1;
+            for(var i=0; i<size; i++) {
+                var divTag = document.createElement("div");
+                document.body.appendChild(divTag);
+                for(var j=0; j<cnt; j++) {
+                    var imgTag = document.createElement("img");
+                    imgTag.src = "star.gif";
+                    divTag.appendChild(imgTag);
+                }
+                cnt = i<Math.floor(size/2)?cnt+1:cnt-1;
+            }
+        }
+    </script>
+
+</body>
+</html>

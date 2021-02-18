@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    검색: <input type="text" id="search">
+    <hr>
+    <table border="1" width="500">
+        <thead >
+            <th>성명</th>
+            <th>전홥번호</th>
+            <th>나이</th>
+        </thead>
+        <tbody id="pList"></tbody>
+    </table>
+    <hr>
+    성명입력 : <input type="text" id="nameInput"><br>
+    전화번호 : <input type="text" id="phoneInput"><br>
+    나이입력 : <input type="text" id="ageInput"><br>
+    <input type="button" id="inputBtn" value="저장하기">
+
+    <script>
+        function People(userName, phone, age) {
+            this.userName = userName;
+            this.phone = phone;
+            this.age = age;
+        }
+        People.prototype.show = function() {
+            return `<tr><td>${this.userName}</td>
+                <td>${this.phone}</td>
+                <td>${this.age}</td></tr>`;
+        }
+        var list = [];
+
+        list.push(new People("PAR","1111-1111",12));
+        list.push(new People("KIM","1111-1111",12));
+        list.push(new People("LEE","1111-1111",12));
+        list.push(new People("PARK","1111-1111",12));
+        list.push(new People("KANG","1111-1111",12));
+        list.push(new People("PARK2","1111-1111",12));
+
+        var pList = document.querySelector("#pList");
+        var trTags = "";
+        for(item of list) {
+            trTags += item.show();
+        }
+        pList.innerHTML = trTags;
+
+        // PARK이 list의 몇번째 인덱스인지 알아내는 기능.
+        function findIndexByName(lis, name) {
+            for(var i=0; i<lis.length; i++) {
+                if(name == lis[i].userName) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        function findList(lis, name) {
+            let newArr = []
+            for(var i=0; i<lis.length; i++) {
+                if(name == lis[i].userName) {
+                    newArr.push(lis[i]); //같은 이름의 객체 요소를 저장.
+                }
+            }
+            if(newArr.length > 0) return newArr;
+            else return null;
+        }
+
+        function findLikeList(lis, name) {
+            let newArr = []
+            for(var i=0; i<lis.length; i++) {
+                if((lis[i].userName.toUpperCase()).indexOf(name.toUpperCase()) != -1) {
+                    newArr.push(lis[i]); //같은 이름의 객체 요소를 저장.
+                }
+            }
+            if(newArr.length > 0) return newArr;
+            else return null;
+        }
+
+        // var searchName = 'PA';
+        // var idx = findIndexByName(list, searchName);
+        // console.log(searchName+"의 index => "+idx);
+        // var searchList = findLikeList(list, searchName);
+        // console.log(searchList);
+        
+        var search = document.querySelector("#search");
+        search.focus();
+        search.onkeyup = function() {
+            var sName = this.value;
+            var searchList = findLikeList(list, sName);
+            var trTags = "";
+            if(searchList) {
+                for(item of searchList) {
+                    trTags += item.show();
+                }
+            } else {
+                for(item of list) {
+                    trTags += item.show();
+                }
+            }
+            pList.innerHTML = trTags;
+            
+        }
+    </script>
+</body>
+</html>

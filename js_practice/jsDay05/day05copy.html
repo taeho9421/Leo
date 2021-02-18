@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#box {
+            width:300px; height: 300px; border: 2px solid black;
+            background-color: skyblue; position: absolute;
+            font-size: 20px;
+        }
+        #box {
+            box-shadow: 1px 3px 5px black;
+        }
+        #header {
+            overflow: hidden;
+            padding: 2%;
+            margin: 0%;
+            border-bottom: 1px solid black;
+            text-align: right;
+            background-color: white;
+        }
+        #main {
+            font-family: "굴림체";
+            padding: 3%;
+            list-style: none;           
+        }
+        #main p {
+            margin: 0%;
+            margin-bottom: 5%;
+            padding: 3%;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid black;
+        }
+        #main li {
+            margin: 1%;
+            padding: 1%;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector("#box");
+            var header = document.querySelector("#header"); // 상단 부분을 header로 명칭
+            header.onmousedown = function(event) { // 이벤트 발생만 header로 진행하면 상단 드래그로만 이동합니다.
+                box.gapX = event.clientX - box.offsetLeft;
+                box.gapY = event.clientY - box.offsetTop;
+
+                window.onmousemove = function(event2) {
+                    box.style.left = event2.clientX - box.gapX + "px";
+                    box.style.top = event2.clientY - box.gapY + "px";
+                }
+            }
+
+            window.onmouseup = function(event2) {
+                window.onmousemove = null;
+            }
+
+            var button = document.querySelector("#closeBtn");
+            button.onclick = function() {
+                box.style.display = "none"; // 닫기 버튼을 클릭하면 창닫기
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <div id="header">
+            <input type="button" id="closeBtn" value="X">
+        </div>
+        <div id="main">
+            <p>공지사항</p>
+            <li>1. 열심히 합시다.</li>
+            <li>2. 포기하지 마세요.</li>
+            <li>3. 복습은 꼼꼼히</li>
+            <li>4. 과제는 착실히</li>
+            <li>5. 매사에 최선을</li>
+            <li>6. 마지막까지 화이팅</li>
+        </div>       
+    </div>
+</body>
+</html>

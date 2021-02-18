@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span.red {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>더하기 계산기</h1>
+    <hr>
+    <input type="text" id="a" size="5"> 
+    <input type="text" id="b" size="5">
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select> 
+    <input type="button" id="btn" value= "확인">
+    <hr>
+    <div>결과: <span id="result"></span></div>
+
+    <script>
+        var a = document.getElementById("a");
+        var b = document.getElementById("b");
+        var operator = document.getElementById("operator");
+        var btn = document.getElementById("btn");
+        var result = document.getElementById("result");
+       
+        // 기능 이라는 것은 함수 
+      btn.onclick = function() {
+        var aValue = Number(a.value);
+        var bValue = Number(b.value);
+        var operValue = operator.value;
+        var c;
+
+        if(isNaN(Number(aValue))) {
+           // alert("숫자만 입력하세요!")
+           result.innerHTML= "<span class='red'>숫자만 입력하세요!</span>";
+            a.value="";
+            a.focus();
+            return;
+        }
+
+        if(isNaN(Number(bValue))) {
+            // alert("숫자만 입력하세요!")
+            result.innerHTML= "<span class='red'>숫자만 입력하세요!</span>";
+            b.value="";
+            b.focus();
+            return;
+        }
+
+        if(operValue == '+') {
+            c = aValue + bValue;
+        } else if(operValue == '-') {
+            c = aValue - bValue;
+        } else if(operValue == '*') {
+            c = aValue * bValue;
+        } else if(operValue == '/') {
+            c = aValue / bValue;
+        }
+        
+        // eval() : 문자열을 수식어나 객체 형태로 변환 해준다. 
+        c = eval(aValue + operValue + bValue); 
+        result.innerHTML = c
+        }
+    </script>
+</body>
+</html>
