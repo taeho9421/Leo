@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 스프링 빈 생성시 의존성 주입하기 -->
+	<!-- 의존성 주입에 사용 될 빈 생성 -->
+	
+	<!-- 생성자 호출할때 값을 넣어줌 -->
+	<bean id="speaker" class="org.comstudy21.myweb.tv.Speaker">
+		<constructor-arg name ="name" value="소니 스피커"></constructor-arg>
+		<constructor-arg name="volume" value="7"></constructor-arg>
+	</bean>
+	
+	<!-- setter의 역할을 함 -->
+	<bean id="tv" class="org.comstudy21.myweb.tv.SamsungTV">
+		<property name="speaker" ref="speaker"></property>
+	</bean>
+</beans>

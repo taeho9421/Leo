@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원 정보 등록 폼</title>
+<style>
+table {
+	border-collapse: collapse;
+}
+th, td{
+	border:1px solid black;
+	padding : 10px;
+}
+</style>
+</head>
+<body>
+<h2>회원 정보 등록</h2>
+<form action="member.jsp" method="post">
+<table>
+	<tr>
+		<th>사용자 이름</th>
+		<td><input type="text" name="name" value="KIM"></td>
+	</tr>
+	<tr>
+		<th>나이</th>
+		<td><input type="text" name="age" value="35"></td>
+	</tr>
+	<tr>
+		<th>몸무게</th>
+		<td><input type="text" name="weight" value="80"></td>
+	</tr>
+	<tr>
+		<th>키</th>
+		<td><input type="text" name="height" value="180"></td>
+	</tr>
+	<tr>
+		<th>성별</th>
+		<td><input type="text" name="sex" value="남"></td>
+	</tr>
+	<tr>
+		<th colspan="2"><input type="submit" name="등록하기" value="등록하기"></th>		
+	</tr>
+</table>
+</form>
+</body>
+</html>

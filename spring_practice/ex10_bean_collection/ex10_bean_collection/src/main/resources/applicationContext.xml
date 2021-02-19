@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<bean id="myMessage" class="org.comstudy21.myweb.app.MyMessage">
+		<constructor-arg value="즐거운 금요일 주말밤 되세요"></constructor-arg>
+	</bean>
+
+	<bean id="helloWorld" p:myMessage-ref="myMessage"
+		class="org.comstudy21.myweb.app.HelloWorld">
+		<constructor-arg name="name" value="보아"></constructor-arg>
+		<constructor-arg name="day" value="내일"></constructor-arg>
+	</bean>
+
+	<bean id="setBean"
+		class="org.comstudy21.myweb.collections.SetBean">
+		<property name="addrSet">
+			<set value-type="java.lang.String">
+				<value>서울시 마포구 신수동</value>
+				<value>서울시 마포구 아현동</value>
+				<value>서울시 마포구 대흥동</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="msg1" class="org.comstudy21.myweb.app.MyMessage">
+		<constructor-arg value="안녕하세요."></constructor-arg>
+	</bean>
+	<bean id="msg2" class="org.comstudy21.myweb.app.MyMessage">
+		<constructor-arg value="반갑습니다."></constructor-arg>
+	</bean>
+	<bean id="msg3" class="org.comstudy21.myweb.app.MyMessage">
+		<constructor-arg value="행복하세요"></constructor-arg>
+	</bean>
+
+	<bean id="mapBean"
+		class="org.comstudy21.myweb.collections.MapBean">
+		<property name="msgMap">
+			<map>
+				<entry key="홍길동" value-ref="msg1" />
+				<entry key="김길동" value-ref="msg2" />
+				<entry key="장길동" value-ref="msg3" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="propBean"
+		class="org.comstudy21.myweb.collections.PropBean">
+		<property name="addrProp">
+			<props>
+				<prop key="홍길동">서울시 마포구 아현동</prop>
+				<prop key="홍길동">서울시 은평구 응암동</prop>
+				<prop key="홍길동">부산시 사하구 장림동</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="listBean"
+		class="org.comstudy21.myweb.collections.ListBean">
+		<property name="addrList">
+			<list>
+				<value>서울시 마포구 신수동</value>
+				<value>서울시 마포구 아현동</value>
+				<value>서울시 마포구 대흥동</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

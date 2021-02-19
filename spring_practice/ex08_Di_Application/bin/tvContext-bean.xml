@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- tvContext.xml 에서 빈 생성 -->
+	<bean name="samsung.tv" class="org.comstudy21.myweb.tv.SamsungTV" init-method="initMethod"></bean>
+	<!-- lazy-init = true 호출해서 사용할때 생성된다 -->
+	<!-- scope="prototype" : 싱글톤이 아닌 상태로 빈 생성 -->
+	<bean id="lgTv" class="org.comstudy21.myweb.tv.LgTv" scope="prototype" lazy-init="true"></bean>
+</beans>
