@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.comstudy21.myweb.ManageMapper">
+
+	<select id="getUser" resultType="ManageVO">
+	<![CDATA[
+		select * from manage where
+		seq = #{seq}
+	]]>
+	</select>
+
+	<select id="getUserList" resultType="ManageVO">
+		select * from manage 
+	<where>
+		<if test="searchCondition == 'userName'">
+			and name like '%'||#{keyword}||'%' 
+		</if>
+		<if test="searchCondition == 'UserID'">
+			and id like '%'||#{keyword}||'%' 
+		</if>
+	</where>
+		order by seq desc
+	</select>
+
+	<insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+	<![CDATA[
+		insert into manage (seq, id, name, grade)
+		values ((select nvl(max(seq),0) from manage)+1,#{id},#{name},#{grade})
+	]]>
+	</insert>
+	
+	<update id="updateUser">
+	<![CDATA[
+		UPDATE MANAGE
+		SET name=#{name}, id=#{id}, grade=#{grade}
+		WHERE SEQ=#{seq};
+	]]>
+	</update>
+	
+	<delete id="deleteUser">
+	<![CDATA[
+		DELETE FROM MANAGE WHERE SEQ=#{seq};
+	]]>
+	</delete>
+</mapper>
