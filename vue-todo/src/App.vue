@@ -15,26 +15,26 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
-  data: function() {
+  data() {
     return {
       todoItems:[]
     }
   },
   methods: {
-    addOneItem: function(todoItem) {
+    addOneItem(todoItem) {
       var obj={completed:false,item:todoItem};
       localStorage.setItem(todoItem, JSON.stringify(obj));
       this.todoItems.push(obj);
     },
-    removeOneItem: function(todoItem,index) {
+    removeOneItem(todoItem,index) {
       localStorage.removeItem(todoItem,index);
       this.todoItems.splice(index,1);
     },
-    toggleOneItem: function(todoItem) {
+    toggleOneItem(todoItem) {
       localStorage.removeItem(todoItem.item);
       localStorage.setItem(todoItem.item,JSON.stringify(todoItem));
     },
-    clearAllItems: function() {
+    clearAllItems() {
       localStorage.clear();
       this.todoItems = [];
     }
