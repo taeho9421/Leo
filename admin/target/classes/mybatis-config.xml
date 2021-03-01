@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="ManageVO" type="org.comstudy21.myweb.manage.ManageVO"/>
+		<typeAlias alias="AdminVO" type="org.comstudy21.myweb.admin.AdminVO"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mappers/ManageMapper.xml" />
+		<mapper resource="mappers/AdminMapper.xml" />
+	</mappers>
+</configuration>
