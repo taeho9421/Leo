@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>내가 직접 만든 Ajax 기능</h1>
+<iframe id="iframe" src="" frameborder="0" width="0" height="0"></iframe>
+
+<select id="selectUrl">
+   <option value="data.txt">data.txt</option>
+   <option value="data2.txt">data2.txt</option>
+</select>
+<input id="loadBtn" type="button" value="데이터 불러오기">
+<hr>
+<div id="resultArea">로딩 결과: </div>
+
+<script>
+var loadBtn = document.getElementById("loadBtn");
+var iframe = document.getElementById("iframe");
+var selectUrl = document.getElementById("selectUrl");
+var resultArea = document.getElementById("resultArea");
+loadBtn.onclick = function(evt) {
+   var url = selectUrl.value;
+   iframe.setAttribute("src",url);
+   
+   iframe.onload = function() {
+      //console.log(iframe.contentDocument.body.innerText);
+      var txt = iframe.contentDocument.body.innerText;
+      console.log(JSON.parse(txt));
+      resultArea.innerHTML = "로딩 결과: " + txt;
+   }
+}
+</script>
+</body>
+</html>
