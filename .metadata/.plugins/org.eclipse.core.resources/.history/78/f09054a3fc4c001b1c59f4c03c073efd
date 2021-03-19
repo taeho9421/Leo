@@ -1,0 +1,7 @@
+package com.myproject.myapp.board;
+
+public interface BoardDAO {
+	// 데이터 접근을 목적으로 하는 객체 
+	
+	@Auto
+}

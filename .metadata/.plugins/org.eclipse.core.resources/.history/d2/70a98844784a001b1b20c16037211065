@@ -1,0 +1,42 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>관리자정보</title>
+</head>
+<body>
+	<div class="content">
+		<header>
+			<h3>${userinfo.name}관리자정보</h3>
+		</header>
+		<table class="table table-user-information">
+			<tr>
+				<td>아이디:</td>
+				<td>${userinfo.id}</td>
+			</tr>
+			<tr>
+				<td>이름:</td>
+				<td>${userinfo.name}</td>
+			</tr>
+			<tr>
+				<td>E-Mail:</td>
+				<td>${userinfo.email}</td>
+			</tr>
+			<tr>
+				<td>전화번호:</td>
+				<td>${userinfo.phone}</td>
+			</tr>
+		</table>
+
+
+		출처: https://simsimjae.tistory.com/9 [104%] 출처:
+		https://simsimjae.tistory.com/9 [104%] 출처:
+		https://simsimjae.tistory.com/9 [104%]
+
+
+	</div>
+
+</body>
+</html>

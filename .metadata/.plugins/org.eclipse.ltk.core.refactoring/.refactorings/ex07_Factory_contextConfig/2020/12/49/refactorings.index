@@ -1,0 +1,11 @@
+1606957470102	Extract interface 'TV'
+1606962891175	Move 'applicationContext.xml' to 'WEB-INF'
+1606962907848	Delete element
+1606962947371	Rename resource 'applicationContext.xml'
+1606963432997	Move 'appServlet-context.xml' to 'spring'
+1606963864264	Rename resource 'appServlet-context.xml'
+1606963901192	Rename resource 'appServletContext.xml'
+1606963908977	Move files
+1606963912140	Delete element
+1606964025184	Rename resource 'appServlet-context.xml'
+1606966695275	Copy compilation units

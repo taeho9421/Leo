@@ -1,0 +1,15 @@
+package com.myproject.myapp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.myproject.myapp.board.BoardService;
+
+@Controller
+public class BoardController {
+	
+	@Autowired
+	BoardService boardService;
+	
+	
+}

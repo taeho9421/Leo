@@ -1,0 +1,14 @@
+package com.myproject.myapp.board.Impl;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.myproject.myapp.board.BoardService;
+
+@Repository("boardDAO")
+public class BoardDAO implements BoardService{
+	@Autowired
+	SqlSession session;
+	
+}

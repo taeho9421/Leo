@@ -1,0 +1,7 @@
+
+12월 17, 2020 12:55:35.42 NEW SESSION
+12월 17, 2020 12:55:35.42 [1217/125535.413:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+
+12월 27, 2020 23:15:31.08 NEW SESSION
+12월 27, 2020 23:15:31.08 [1227/231531.033:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
+12월 27, 2020 23:39:14.77 [1227/233914.773:ERROR:directory_reader_win.cc(43)] FindFirstFile: 지정된 경로를 찾을 수 없습니다. (0x3)
